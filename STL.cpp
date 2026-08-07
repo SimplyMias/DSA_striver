@@ -174,6 +174,20 @@ void explain_vectors()
     //.empty() -> this function is used to check whether the vector is empty or not
     v.empty(); // returns true if the vector is empty (no elements )
 }
+void explain_lists()
+{
+    // lists are the containers it gives front and back operations
+    list<int> ls;       // declaration of list
+    ls.push_back(2);    // {2}
+    ls.emplace_back(4); //{2,4}
+    // one different thing in list is push_front
+    ls.push_front(5);    //{5,2,4}
+    ls.emplace_front(7); //{7,5,2,4}
+
+    // rest functions are same as vector
+    //  begin, end , rbegin, rend, clear, insert, size, swap
+}
+
 int main()
 {
     // print();
