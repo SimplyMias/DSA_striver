@@ -1,6 +1,6 @@
 // STL stands for Standard Template Library
 // It is a powerful collection of pre-written algorithms, containers, functions and iterators
-//  designed to save the developer's time by avoiding the need to
+//  designed to save the developer's time by avoiding the need to rewrite them again and again
 #include <bits/stdc++.h>
 using namespace std;
 void print()
@@ -113,15 +113,15 @@ void explain_vectors()
 
     // printing entire vector at once
     // we can do this using for loop and iterator
-    for (vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-    {
-        cout << *(it) << " ";
-    }
+    // for (vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+    // {
+    //     cout << *(it) << " ";
+    // }
     // shortcut for this is using auto means it will automatically assigns it to a vector iterator
-    for (auto it = vec.begin(); it != vec.end(); it++)
-    {
-        cout << *(it) << " ";
-    }
+    // for (auto it = vec.begin(); it != vec.end(); it++)
+    // {
+    //     cout << *(it) << " ";
+    // }
 
     // Note when we use auto the machine will automatically check the type of data from the value we set it to auto means auto assignation
 
@@ -132,6 +132,47 @@ void explain_vectors()
     }
 
     // DELETION in a Vector
+    // here we can use erase function
+    // in order to use erase function there are couple of things
+    // to delete single element you can do it like this
+    vec.erase(vec.begin());
+    // here after deleting the element  reshuffling of the elements will be done means after removing the first element  the second element will be the starting point
+    // vec.erase(vec.begin() + 1); //deleting the second element of the vector
+
+    // DELETEING multiple elements from the vector
+    vec.erase(vec.begin() + 1, vec.begin() + 3); // here for the starting element point it directly from where you want  to start but the end point must be next to the element you want to delete
+    // let say you want to delete element 2 3 so you should point to start to the 2nd element v.begin()+1 and end element must be v.begin()+3
+
+    // INSERT FUNCTION
+    // used to insert element in a container at a specific position
+    vector<int> v(2, 100);    //{100,100}
+    v.insert(v.begin(), 300); //{300,100,100} -> structure of insert function: vector.insert(iterator, value)
+    // If we want to insert many instance of a valuee
+    v.insert(v.begin() + 1, 2, 10); //{300,10,10,100,100}
+
+    // inserting vector inside a vector
+    vector<int> copy(2, 50);                       //{50,50}
+    v.insert(v.begin(), copy.begin(), copy.end()); // {50,50,300,10,10,100,100}
+
+    // OTHER FUNCTIONS in a VECTOR
+    //  v.size() this will return how many elements are there in a vector
+    cout << v.size(); // 2
+
+    // .pop_back this function remove the last element from the vector
+    // {10,20}
+    v.pop_back(); // 10
+
+    //.swap() this function is used to swap  two vectors
+    // let two vectors
+    // v1 -> {10,20}
+    // v2 -> {30,40}
+    v1.swap(v2); // v1-> {30,40} v2 -> {10,20}
+
+    //.clear() -> this function  erase all the elements from the vector
+    v1.clear();
+
+    //.empty() -> this function is used to check whether the vector is empty or not
+    v.empty(); // returns true if the vector is empty (no elements )
 }
 int main()
 {
